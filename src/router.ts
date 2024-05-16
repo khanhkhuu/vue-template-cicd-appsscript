@@ -20,6 +20,14 @@ const router = createRouter({
     // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
     history: createWebHashHistory(),
     routes,
-  });
-  
-  export { router };
+});
+
+google.script.history.setChangeHandler(function (e) {
+    console.log(e.state);
+    console.log(e.location.parameters);
+    console.log(e.location.hash);
+    
+    // Adjust web app UI to match popped state here...
+});
+
+export { router };
