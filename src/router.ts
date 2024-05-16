@@ -22,21 +22,4 @@ const router = createRouter({
     routes,
 });
 
-router.beforeEach((to, from) => {
-    console.log({
-        to,
-        from,
-    })
-});
-
-
-
-google.script.history.setChangeHandler(function (e) {
-    console.log(e.state);
-    console.log(e.location.parameters);
-    console.log(e.location.hash);
-    
-    // Adjust web app UI to match popped state here...
-});
-
 export { router };

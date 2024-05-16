@@ -21,4 +21,9 @@ myApp.mount('#app')
 
 google.script.url.getLocation(function(location) {
   router.replace(location.hash);
+  console.log('router replace', location.hash);
+});
+
+router.beforeEach((to, from) => {
+  google.script.history.push({}, {}, to.hash);
 });
