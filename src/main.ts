@@ -16,6 +16,9 @@ myApp.use(Quasar, {
   plugins: {}, // import Quasar plugins and add here
 })
 
-
 // Assumes you have a <div id="app"></div> in your index.html
 myApp.mount('#app')
+
+google.script.url.getLocation(function(location) {
+  router.replace(location.hash);
+});

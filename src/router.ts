@@ -29,9 +29,7 @@ router.beforeEach((to, from) => {
     })
 });
 
-google.script.url.getLocation(function(location) {
-    console.log('getLocation', location);
-  });
+
 
 google.script.history.setChangeHandler(function (e) {
     console.log(e.state);
