@@ -26,3 +26,20 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(129, 90, 56, 0.887);
 }
+
+.fade-down-enter-active,
+.fade-down-leave-active {
+  opacity: 1;
+  transform: translatey(0);
+  transition-duration: 0.4s;
+  transition-timing-function: ease-out;
+}
+
+.fade-down-enter-from,
+.fade-down-leave-to {
+  transform: translatey(20px);
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+}
