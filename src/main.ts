@@ -24,6 +24,6 @@ google.script.url.getLocation(function(location) {
   console.log('router replace', location.hash);
 });
 
-router.beforeEach((to) => {
-  google.script.history.push({}, {}, to.hash);
-});
+// router.beforeEach((to) => {
+//   google.script.history.push({}, {}, to.hash);
+// });
