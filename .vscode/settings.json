@@ -1,0 +1,21 @@
+// Workspace settings
+{
+    // The following will hide the js and map files in the editor
+    "files.exclude": {
+        "node_modules": true,
+        "dist": true,
+        "public": true,
+        "*.cjs": true,
+        ".gitignore": true,
+        "*.loader.mjs": true,
+        "*.sh": true,
+        "package*.json": true,
+        "tsconfig.*json": true,
+        "vite.config.*": true,
+        "**/vite-env.d.ts": true,
+        "**/*.map": true,
+        ".github": true,
+        "**/types": true,
+        ".vscode": true
+    }
+}
