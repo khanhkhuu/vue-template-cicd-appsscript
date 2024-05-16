@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import AppHeader from "@/components/AppHeader.vue";
 import AppLeftDrawer from "@/components/AppLeftDrawer.vue";
+import AppPermission from '@/components/AppPermission.vue';
 
 const leftDrawerOpen = ref(false);
 
@@ -32,7 +33,9 @@ function toggleLeftDrawer() {
       <router-view v-slot="{ Component, route }">
         <transition mode="out-in" name="fade-down">
           <div :key="route.path">
-            <component :is="Component" />
+            <AppPermission>
+              <component :is="Component" />
+            </AppPermission>
           </div>
         </transition>
       </router-view>
