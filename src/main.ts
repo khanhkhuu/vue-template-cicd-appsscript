@@ -16,10 +16,12 @@ myApp.use(Quasar, {
   plugins: {}, // import Quasar plugins and add here
 });
 
-google.script.url.getLocation(async function (location) {
-  await router.replace(location.hash);
-  router.beforeEach((to) => {
-    google.script.history.push({}, {}, to.fullPath);
+if (import.meta.env.PROD) {
+  google.script.url.getLocation(async function (location) {
+    await router.replace(location.hash);
+    router.beforeEach((to) => {
+      google.script.history.push({}, {}, to.fullPath);
+    });
+    myApp.mount("#app");
   });
-  myApp.mount("#app");
-});
+}
