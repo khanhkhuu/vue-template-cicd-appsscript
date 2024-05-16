@@ -4,11 +4,11 @@
         <q-card-section class="q-py-lg q-px-lg">
           <q-input v-model="thamSo1" label="Tham số 1" filled type="number" />
   
-          <q-input v-model="thamSo2" label="Tham số 2" filled type="number" />
+          <q-input class="q-mt-sm" v-model="thamSo2" label="Tham số 2" filled type="number" />
   
-          <q-btn label="Tính tổng" @click="tinhTong" />
+          <q-btn class="q-mt-sm" label="Tính tổng" @click="tinhTong" />
   
-          <q-banner v-if="result" class="bg-primary text-white">
+          <q-banner v-if="result" class="q-mt-sm bg-primary text-white">
             {{ result }}
           </q-banner>
         </q-card-section>
@@ -19,16 +19,16 @@
   <script setup lang="ts">
   import { ref } from "vue";
   
-  const thamSo1 = ref(0);
-  const thamSo2 = ref(0);
+  const thamSo1 = ref('');
+  const thamSo2 = ref('');
   
   const result = ref("");
   
   function tinhTong() {
-    const sum = thamSo1.value + thamSo2.value;
+    const sum = Number(thamSo1.value) + Number(thamSo2.value);
     result.value = `Kết quả của phép toán: ${thamSo1.value} + ${thamSo2.value} là ${sum}`;
-    thamSo1.value = 0;
-    thamSo2.value = 0;
+    thamSo1.value = '';
+    thamSo2.value = '';
   }
   </script>
   
