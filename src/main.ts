@@ -16,7 +16,8 @@ myApp.use(Quasar, {
   plugins: {}, // import Quasar plugins and add here
 });
 
-if (import.meta.env.PROD) {
+if (import.meta.env.DEV) myApp.mount("#app");
+else {
   google.script.url.getLocation(async function (location) {
     await router.replace(location.hash);
     router.beforeEach((to) => {
