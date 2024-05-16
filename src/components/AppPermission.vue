@@ -8,7 +8,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
 const done = ref(false);
 const isAuthorized = ref(false);
 
@@ -22,6 +24,6 @@ onMounted(() => {
     google.script.run.withSuccessHandler((result: boolean) => {
         isAuthorized.value = result;
         done.value = true;
-    }).auth_CheckAuth();
+    }).auth_CheckAuth(route.fullPath);
 })
 </script>
