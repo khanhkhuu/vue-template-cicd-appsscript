@@ -19,11 +19,10 @@ myApp.use(Quasar, {
 // Assumes you have a <div id="app"></div> in your index.html
 myApp.mount('#app')
 
-google.script.url.getLocation(function(location) {
-  router.replace(location.hash);
-  console.log('router replace', location.hash);
+google.script.url.getLocation(async function(location) {
+  await router.replace(location.hash);
+  router.beforeEach((to) => {
+    google.script.history.push({}, {}, to.hash);
+  });
 });
 
-// router.beforeEach((to) => {
-//   google.script.history.push({}, {}, to.hash);
-// });
