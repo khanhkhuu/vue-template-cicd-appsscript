@@ -1,0 +1,36 @@
+name: CI-CD
+
+on:
+  push:
+    branches: '**'  
+
+jobs:
+  ci-cd:
+    runs-on: ubuntu-latest
+
+    env:
+      TOKEN: ${{ secrets.TOKEN }}
+
+    steps:
+      - name: Setup repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install NPM Package
+        run: npm ci
+
+      - name: Install Clasp
+        run: npm install -g @google/clasp
+
+      - name: Setup Clasp credential
+        run: bash login.sh
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy project to Apps Script
+        run: bash deploy.sh "${{ github.event.head_commit.message }}"
