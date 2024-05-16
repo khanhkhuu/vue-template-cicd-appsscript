@@ -22,15 +22,6 @@ myApp.mount("#app");
 google.script.url.getLocation(async function (location) {
   await router.replace(location.hash);
   router.beforeEach((to) => {
-    // google.script.history.push({}, {}, to.hash);
-    console.log(to);
-    var now = new Date();
-    var state = {
-      timestamp: now.getTime(),
-    };
-    var params = {
-      options: "none",
-    };
-    google.script.history.push(state, params, "anchor1");
+    google.script.history.push({}, {}, to.fullPath);
   });
 });
